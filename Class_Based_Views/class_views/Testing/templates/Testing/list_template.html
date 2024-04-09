@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title> List view Example</title>
+</head>
+<body>
+    <h1> Contacts </h1>
+    {% for contact in contacts %}
+    <div>
+        <p>First Name : {{ contact.first_name }}</p>
+        <p>Last Name: {{ contact.last_name }}</p>
+        <p>Email: {{ contact.email }}</p>
+        <p>Phone Number: {{ contact.phone }}</p>
+        <br>
+        <p> </p>
+    </div>
+    {% endfor %}
+</body>
+</html>

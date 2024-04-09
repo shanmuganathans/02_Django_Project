@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title> Form view example </title>
+    </head>
+    <body>
+        <form method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" vaule="submit"/>
+    </body>
+</form>
+</html>
