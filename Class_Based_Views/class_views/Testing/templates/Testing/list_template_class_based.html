@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title> List view Example</title>
+</head>
+<body>
+    <h1> Contacts </h1>
+    {% for contact in contacts %}
+    <div>
+        <p>First Name : {{ contact.first_name }}</p>
+        <p> <a href="{% url 'fbv_detail_view'  contact.id %}">Details</a> </p>
+        <p> <a href="{% url 'cbv_detail_view'  contact.id %}">Class based Details</a> </p>
+        <p> <a href="{% url 'fbv_update_view'  contact.id %}">Update</a> </p>
+        <p> <a href="{% url 'cbv_update_view'  contact.id %}">Class based Update</a> </p>
+        <p> <a href="{% url 'fbv_delete_view'  contact.id %}">Delete</a> </p>
+        <p> <a href="{% url 'cbv_delete_view'  contact.id %}">Class Based Delete</a> </p>
+
+        <br>
+    </div>
+    {% endfor %}
+</body>
+</html>

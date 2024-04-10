@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Delete View</title>
+    </head>
+    <body>
+        Are you sure to delete {{ contact.first_name }} ?
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <button type ="submit"> Yes, Delete</button>
+            <a href ="{% url 'cbv_list_view' %}"> Cancel </a>
+        </form>
+
+    </body>
+    </html>
