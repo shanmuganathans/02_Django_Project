@@ -119,3 +119,39 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,"django_project","static")]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        "file_format":{
+            "format": "{levelname}- {asctime} - {pathname} - {module} - {lineno} - {message}",
+            "style":"{"
+        },
+        "simple":{
+            "format": "{levelname}- {asctime} - {message}",
+            "style":"{"
+        }
+    },
+    'handlers': {
+        "file":{
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR/"blog_logger.log",
+            "formatter": "file_format",
+        },
+        "console":{
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        }
+        
+    },
+    'loggers': {
+        "":{
+            "handlers":["console", "file"],
+            "level": "INFO",
+            "propagate": True,
+        }
+    }
+}
+

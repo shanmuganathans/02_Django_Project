@@ -7,18 +7,24 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
+import logging
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 @login_required
 def home(request):
     # title ="welcome to django class"
+    logger.info("Home page was acceesed..!")
     posts = Post.objects.all()
     context = {
         # "title": title,
         "posts": posts,
     }
+    logger.warning("Context data was passed to the html")
     return render(request, "blog/home.html", context)
 
 def about(request):
+    logger.critical("The about page was accessed..!")
     return render(request, "blog/about.html")
 
 

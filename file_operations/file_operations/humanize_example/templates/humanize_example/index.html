@@ -1,0 +1,32 @@
+{% load humanize %}
+<html>
+    <head>
+        <title>
+            Humanize Example
+        </title>
+    </head>
+    <body>
+        <h1> Humanize Example </h1>
+        <p> {{ large_number }} </p>
+        <p>  {{ message }} </p>
+        <p> {{ number }} </p>
+        <p>{{ current_time }}</p>
+        <p>{{ day1 }}</p>
+        <p>{{ day2 }}</p>
+
+
+        <h2> Humanize Output </h2>
+        <p> {{ large_number | intcomma }} </p>
+        <p>  {{ message | title }} </p>
+        <p> {{ large_number | intword }} </p>
+        <p> {{ number | ordinal }} </p>
+        <p>{{ day1 | naturalday }}</p>
+        <p>{{ day1 | naturaltime }}</p>
+        <p>{{ day1 | naturalday:"F d D" }}</p>
+        <p>{{ day1 | naturalday:"l j N Y" }}</p>
+        <p>{{ day1 | timeuntil }}</p>
+        <p>{{ day2 | timesince }}</p>
+
+
+    </body>
+    </html>

@@ -1,0 +1,9 @@
+INFO- 2024-04-17 15:53:55,469 - Watching for file changes with StatReloader
+INFO- 2024-04-17 15:54:02,194 - Home page was acceesed..!
+WARNING- 2024-04-17 15:54:02,194 - Context data was passed to the html
+INFO- 2024-04-17 15:55:41,730 - /Users/shanmuganathans/Documents/Repo/02_Django_Project/django_project/django_project/settings.py changed, reloading.
+INFO- 2024-04-17 15:55:43,149 - Watching for file changes with StatReloader
+INFO- 2024-04-17 15:55:52,034 - /Users/shanmuganathans/Documents/Repo/02_Django_Project/django_project/django_project/settings.py changed, reloading.
+INFO- 2024-04-17 15:55:53,086 - /Users/shanmuganathans/opt/anaconda3/lib/python3.9/site-packages/django/utils/autoreload.py - autoreload - 677 - Watching for file changes with StatReloader
+INFO- 2024-04-17 15:56:06,758 - /Users/shanmuganathans/Documents/Repo/02_Django_Project/django_project/blog/views.py - views - 17 - Home page was acceesed..!
+WARNING- 2024-04-17 15:56:06,759 - /Users/shanmuganathans/Documents/Repo/02_Django_Project/django_project/blog/views.py - views - 23 - Context data was passed to the html
