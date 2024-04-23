@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "file_upload_app",
     "report_generator_app",
     "humanize_example",
+    "custome_template_tags",
+    "localization",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "file_operations.urls"
@@ -130,3 +133,13 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
+USE_I18N = True
+USE_TZ = True
+LANGUAGES=[
+        ('en', 'English'),
+        ('es', 'Spanish'),
+        ('fr', 'French'),
+]
+LOCALE_PATHS =[os.path.join(BASE_DIR, "locale")]
