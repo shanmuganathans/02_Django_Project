@@ -2,4 +2,31 @@
 
 {% block content %}
 <h1> About Page</h1>
+<div class="container">
+    <h1 class="text-center">List of Employees</h1>
+    <hr>
+
+    <ul class="list-group list-group-flush">
+      {% for contact in page_obj %}
+        <li class="list-group-item">{{ contact }}</li>
+      {% endfor %}
+    </ul>
+
+    <br><hr>
+
+<div>
+<span>
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+  <span>
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+  </span>
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+  {% endif %}
+</span>
+</div>
+</div>
+
 {% endblock content %}

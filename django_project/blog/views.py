@@ -1,14 +1,29 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Contact
 
 from .forms import PostForm
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
+#pagination
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from django.views.generic import ListView
+
 import logging
 logger = logging.getLogger(__name__)
+
+from .signals import custom_signal
+
+class Index(ListView):
+    model = Contact
+    context_object_name ='contact'
+    paginate_by = 6
+    template_name = "blog/about.html"
+    
+    
 
 # Create your views here.
 @login_required
@@ -23,9 +38,26 @@ def home(request):
     logger.warning("Context data was passed to the html")
     return render(request, "blog/home.html", context)
 
+
+
+
 def about(request):
-    logger.critical("The about page was accessed..!")
-    return render(request, "blog/about.html")
+    # logger.critical("The about page was accessed..!")
+    # custom_signal.send(sender=None, instance="Testing")
+    
+    all_data = Contact.objects.all()
+    page_num = request.GET.get('page',1)
+    
+    paginator = Paginator(all_data, 5)
+    
+    try:
+        page_obj = paginator.page(page_num)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    
+    return render(request, "blog/about.html", context={"page_obj":page_obj})
 
 
 @login_required
